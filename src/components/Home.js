@@ -1,9 +1,13 @@
-
+import { useSelector } from 'react-redux';
+import { selectUser } from '../feature/userSlice';
 
 function Home(){
+    const user = useSelector(selectUser)
+
     return(
         <div className="home-container">
-            <h1>Hello User</h1>
+        {user?<h1>Hello {user.name}</h1>:<h1>Hello Guest</h1>}
+            
             <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
