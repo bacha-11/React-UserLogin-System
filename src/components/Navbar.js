@@ -3,15 +3,21 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../feature/userSlice';
 import { useDispatch } from "react-redux";
 import { logout } from '../feature/userSlice'
+import { useHistory } from 'react-router-dom'
+
 
 function Navbar(){
     const user = useSelector(selectUser)
     const dispatch = useDispatch();
 
+    let history = useHistory()
+
     const handleLogout = (e) =>{
         e.preventDefault()
 
         dispatch(logout())
+
+        history.push('/')
     }
 
     return(
